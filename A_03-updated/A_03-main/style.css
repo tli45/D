@@ -1,0 +1,221 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap');
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+body {
+  font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+body {
+  font-family: 'Merriweather', serif;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #111;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-family: 'Bebas Neue', cursive;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff6600;
+    border-bottom: 2px solid #ff6600;
+}
+
+/* ----------------------------
+   1. 通用 Hero 样式（所有页面）
+   ---------------------------- */
+header.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    min-height: 350px; /* 若想首页外页面也很高，可改成更大值 */
+}
+
+/* 默认：非首页（无 .home）页面的 Hero 叠加层
+   - 浅色背景 + 深色文字 */
+header.hero .overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: 5px solid #333;
+    outline: 4px dashed #333;
+    outline-offset: -10px;
+    max-width: 90%;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ----------------------------
+   2. 首页专属样式（.home）
+   ---------------------------- */
+.home header.hero {
+    /* 让首页 Hero 占满整个屏幕高度 */
+    height: 100vh;
+    background: url('https://th.bing.com/th/id/OIP.be3MUxXcPUUage0sRMIpTgHaE8?pid=ImgDet&w=474&h=316&rs=1')
+                center/cover no-repeat;
+}
+
+/* 覆盖首页叠加层：深色背景 + 白色文字 */
+.home header.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 5px solid #fff;
+    outline: 4px dashed black;
+}
+
+/* ----------------------------
+   3. 主体内容
+   ---------------------------- */
+main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    color: #222;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+section ul,
+section ol {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+section li {
+    margin-bottom: 10px;
+}
+
+/* Handdrawn style sections */
+.handdrawn {
+    border: 3px solid black;
+    outline: 4px dashed #333;
+    outline-offset: -8px;
+    background: #fff url('images/skate-texture.png') repeat;
+    background-blend-mode: lighten;
+    position: relative;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Images & Videos */
+img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sticker style */
+.sticker {
+    width: 120px;
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    transform: rotate(-10deg);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.sticker:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+/* ----------------------------
+   4. 响应式调整
+   ---------------------------- */
+@media (max-width: 768px) {
+    .sticker {
+        position: static;
+        display: block;
+        margin: 20px auto 0 auto;
+    }
+    
+    /* 小屏幕下，首页 hero 可以不占满整屏，避免太高 */
+    .home header.hero {
+        height: auto;
+        padding: 50px 0;
+    }
+}
